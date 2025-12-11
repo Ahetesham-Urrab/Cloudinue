@@ -70,98 +70,116 @@
 //     </section>
 //   );
 // }
+import { motion } from "framer-motion";
+
 export default function Mission() {
   return (
-    <section className="relative w-full py-8 px-4 lg:px-12 bg-black overflow-hidden">
+    <section className="relative w-full py-16 px-4 lg:px-12 bg-black overflow-hidden">
 
-      {/* Angled Blue Overlay Background */}
-      <div className="absolute inset-0 rotate-1 scale-110"></div>
-
-      {/* Soft Glow Blobs */}
+      {/* Glow Background */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500/20 blur-[100px]"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-400/20 blur-[120px]"></div>
 
       <div className="relative max-w-[1400px] mx-auto text-center">
-        
-        {/* ---------- MAIN HEADING ---------- */}
-        {/* <h2 className="text-white text-5xl font-bold mb-6 tracking-wide">
-          Our Core Beliefs
-        </h2>
-        <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed mb-16">
-          The foundation of Cloudinue is built on innovation, trust, and
-          long-term partnership. We help businesses evolve through modern cloud
-          and AI transformation.
-        </p> */}
 
         {/* ---------- CARDS ROW ---------- */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
 
           {/* ------------------ Mission Card ------------------ */}
-          <div className="group p-[2px] rounded-3xl bg-gradient-to-br from-blue-400 to-blue-700 shadow-lg">
-            <div className="bg-[#020b1a] rounded-3xl p-10 h-full">
-
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="group p-[2px] rounded-3xl bg-gradient-to-br from-blue-400 to-blue-700 shadow-lg"
+          >
+            <motion.div
+              whileHover={{ y: -10, boxShadow: "0 0 30px #00e5ff" }}
+              transition={{ duration: 0.3 }}
+              className="bg-[#020b1a] rounded-3xl p-10 h-full"
+            >
               {/* Icon */}
-              <div className="w-16 h-16 bg-blue-600/30 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-105 transition">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ delay: 0.3, duration: 0.6, type: "spring" }}
+                className="w-16 h-16 bg-blue-600/30 rounded-2xl flex items-center justify-center mx-auto mb-6"
+              >
                 <span className="text-3xl">🛡️</span>
-              </div>
+              </motion.div>
 
-              {/* Title */}
-              <h3 className="text-white text-4xl font-semibold mb-4">
-                Mission
-              </h3>
+              <h3 className="text-white text-4xl font-semibold mb-4">Mission</h3>
 
-              {/* Description */}
               <p className="text-white/80 text-lg leading-relaxed">
                 To empower organizations with powerful, secure, and scalable
                 cloud & AI solutions that boost efficiency and spark continuous
                 innovation.
               </p>
 
-              {/* Image */}
-              <div className="mt-8 flex justify-center">
+              {/* Floating Image */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="mt-8 flex justify-center"
+              >
                 <img
                   src="/images/Private.svg"
                   alt="Mission"
                   className="w-4/5 opacity-80 group-hover:opacity-100 transition duration-300"
                 />
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
 
           {/* ------------------ Vision Card ------------------ */}
-          <div className="group p-[2px] rounded-3xl bg-gradient-to-br from-blue-400 to-blue-700 shadow-lg">
-            <div className="bg-[#020b1a] rounded-3xl p-10 h-full">
-
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: true }}
+            className="group p-[2px] rounded-3xl bg-gradient-to-br from-blue-400 to-blue-700 shadow-lg"
+          >
+            <motion.div
+              whileHover={{ y: -10, boxShadow: "0 0 30px #00e5ff" }}
+              transition={{ duration: 0.3 }}
+              className="bg-[#020b1a] rounded-3xl p-10 h-full"
+            >
               {/* Icon */}
-              <div className="w-16 h-16 bg-blue-600/30 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-105 transition">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ delay: 0.4, duration: 0.6, type: "spring" }}
+                className="w-16 h-16 bg-blue-600/30 rounded-2xl flex items-center justify-center mx-auto mb-6"
+              >
                 <span className="text-3xl">🌐</span>
-              </div>
+              </motion.div>
 
-              {/* Title */}
-              <h3 className="text-white text-4xl font-semibold mb-4">
-                Vision
-              </h3>
+              <h3 className="text-white text-4xl font-semibold mb-4">Vision</h3>
 
-              {/* Description */}
               <p className="text-white/80 text-lg leading-relaxed">
                 To be the world’s most trusted IT transformation partner,
                 delivering cloud-first solutions that redefine business agility
                 and future-readiness.
               </p>
 
-              {/* Image */}
-              <div className="mt-8 flex justify-center">
+              {/* Floating Image */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="mt-8 flex justify-center"
+              >
                 <img
                   src="/images/Private.svg"
                   alt="Vision"
                   className="w-4/5 opacity-80 group-hover:opacity-100 transition duration-300"
                 />
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
 
         </div>
       </div>
     </section>
   );
 }
+

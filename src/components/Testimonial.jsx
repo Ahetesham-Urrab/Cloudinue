@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function Testimonial() {
   const stories = [
@@ -18,14 +19,20 @@ export default function Testimonial() {
     <section className="container mx-auto flex flex-col items-center justify-center px-6 py-5 bg-black">
       
       {/* Heading */}
-      <h2 className="text-white text-4xl md:text-5xl text-center font-bold mb-10">
+      <motion.h2
+        className="text-white text-4xl md:text-5xl text-center font-bold mb-10"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+      >
         Success Stories from Our Clients
-      </h2>
+      </motion.h2>
 
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
         {stories.map((story, index) => (
-          <div
+          <motion.div
             key={index}
             className="rounded-2xl text-white border-0 overflow-hidden p-8 min-h-[400px]"
             style={{
@@ -33,6 +40,10 @@ export default function Testimonial() {
               boxShadow:
                 "inset #0084ffa3 0 49px 90px -55px, inset #f6f6f6a3 0 18px 71px -40px",
             }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             <p className="opacity-75 text-start mb-6 leading-relaxed">
               {story.text}
@@ -43,7 +54,7 @@ export default function Testimonial() {
             </h5>
 
             <span className="text-gray-300 text-sm">{story.role}</span>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

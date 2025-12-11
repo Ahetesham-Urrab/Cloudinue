@@ -63,6 +63,8 @@
 //     </section>
 //   );
 // }
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
+
 export default function Guidlines() {
   const communication = [
     "Communication through attentive engagement",
@@ -77,10 +79,6 @@ export default function Guidlines() {
     "Continuous Learning and Career Development",
   ];
 
-  const Dot = () => (
-    <div className="w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_20px_6px_rgba(0,123,255,0.6)]"></div>
-  );
-
   return (
     <section className="relative py-10 px-6 bg-010101">
       
@@ -91,23 +89,18 @@ export default function Guidlines() {
       <div className="relative max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
 
         {/* ---- LEFT COMM GUIDELINES ---- */}
-        <div className="relative pl-12">
-          
-          {/* Side Label
-          <div className="absolute left-0 top-3 rotate-90 origin-left text-blue-400 text-lg tracking-widest font-semibold">
-            COMMUNICATION
-          </div> */}
-
+        <div className="relative pl-6">
           <h2 className="text-white text-4xl font-bold mb-10">
             Communication Guidelines
           </h2>
 
-          <div className="space-y-10 border-l border-blue-500/30 pl-8">
+          <div className="space-y-8">
             {communication.map((item, i) => (
-              <div key={i} className="relative">
-                <div className="absolute -left-[40px] top-1">
-                  <Dot />
-                </div>
+              <div key={i} className="flex items-start gap-4">
+                
+                {/* Blue Tick */}
+                <CheckCircleIcon className="w-7 h-7 text-blue-500 drop-shadow-[0_0_12px_rgba(0,123,255,0.7)]" />
+
                 <p className="text-white/80 text-lg leading-relaxed">
                   {item}
                 </p>
@@ -117,23 +110,18 @@ export default function Guidlines() {
         </div>
 
         {/* ---- RIGHT PERSONAL GUIDELINES ---- */}
-        <div className="relative pl-12">
-          
-          {/* Side Label
-          <div className="absolute left-0 top-3 rotate-90 origin-left text-blue-400 text-lg tracking-widest font-semibold">
-            PERSONAL
-          </div> */}
-
+        <div className="relative pl-6">
           <h2 className="text-white text-4xl font-bold mb-10">
             Personal Guidelines
           </h2>
 
-          <div className="space-y-10 border-l border-blue-500/30 pl-8">
+          <div className="space-y-8">
             {personal.map((item, i) => (
-              <div key={i} className="relative">
-                <div className="absolute -left-[40px] top-1">
-                  <Dot />
-                </div>
+              <div key={i} className="flex items-start gap-4">
+
+                {/* Blue Tick */}
+                <CheckCircleIcon className="w-7 h-7 text-blue-500 drop-shadow-[0_0_12px_rgba(0,123,255,0.7)]" />
+
                 <p className="text-white/80 text-lg leading-relaxed">
                   {item}
                 </p>
@@ -146,4 +134,5 @@ export default function Guidlines() {
     </section>
   );
 }
+
 

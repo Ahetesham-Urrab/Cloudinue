@@ -13,7 +13,7 @@ export default function About() {
     <div className="w-full overflow-hidden">
       <section
         className="
-        h-screen 
+        h-[60vh]
         flex 
         items-center 
         bg-cover 
@@ -26,7 +26,7 @@ export default function About() {
         <div className="container mx-auto ">
           <div className="grid grid-cols-1 md:grid-cols-12">
             <div
-              className="absolute inset-0 z-9"
+              className="absolute inset-0 z-9 h-[60vh]"
               style={{
                 background: `linear-gradient(to top, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0))`,
                 backgroundSize: "cover",
@@ -34,12 +34,12 @@ export default function About() {
               }}
             ></div>
             {/* Left Content */}
-            <div className="md:col-span-7 px-2 mt-10 z-99">
-              <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
+            <div className="md:col-span-7 px-2 mt-80 z-10 lg:mt-60">
+              <h1 className="text-white text-6xl md:text-6xl font-bold mb-4 text-center lg:text-start">
                 About Us
               </h1>
 
-              <p className="text-white text-lg leading-snug mb-6">
+              <p className="text-white text-lg leading-snug mb-6 hidden lg:block">
                 Cloudinue IT Services LLP was founded to help businesses of every
                 size lead with technology, not get left behind. Our team delivers
                 cloud, AI, and IT solutions built for speed, security, and lasting
@@ -49,7 +49,7 @@ export default function About() {
                 brings bold ideas, proven know-how, and real results to your
                 projects wherever you are.
               </p>
-              <NeonButton text="Contact Us" />
+              {/* <NeonButton text="Contact Us" /> */}
 
             </div>
 

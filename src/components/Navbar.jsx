@@ -1,28 +1,54 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false); // Mobile menu
-  const [dropdown, setDropdown] = useState(false); // Mobile dropdown
+  const [open, setOpen] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+  const [scrolled, setScrolled] = useState(false); // Scroll state
 
-  // Neon Glow + Underline Hover Effect
- const navLink =
-  "relative inline-block pb-1 text-white transition-all duration-300 " +
-  "after:content-[''] after:absolute after:left-0 after:-bottom-0 " +
-  "after:w-full after:h-[2px] after:bg-[#00f0ff] " +
-  "after:shadow-[0_0_10px_#00f0ff,0_0_20px_#00f0ff] " +
-  "after:transform after:scale-x-0 after:origin-right after:transition-transform after:duration-300 " +
-  "hover:after:scale-x-100 hover:after:origin-left " +
-  "hover:text-[#00f0ff] hover:[text-shadow:0_0_5px_#00f0ff,0_0_10px_#00f0ff]";
+  // Detect scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) setScrolled(true);
+      else setScrolled(false);
+    };
 
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Neon link styles
+  const navLink =
+    "relative inline-block pb-1 text-white transition-all duration-300 " +
+    "after:content-[''] after:absolute after:left-0 after:-bottom-0 " +
+    "after:w-full after:h-[2px] after:bg-[#00f0ff] " +
+    "after:shadow-[0_0_10px_#00f0ff,0_0_20px_#00f0ff] " +
+    "after:transform after:scale-x-0 after:origin-right after:transition-transform after:duration-300 " +
+    "hover:after:scale-x-100 hover:after:origin-left " +
+    "hover:text-[#00f0ff] hover:[text-shadow:0_0_5px_#00f0ff,0_0_10px_#00f0ff]";
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-[9999]">
-      <div className="w-full h-[20vh] px-6 lg:px-20 flex items-center justify-between">
-
+    <nav
+      className={`
+        fixed top-0 left-0 w-full z-[9999] transition-all duration-300
+        ${scrolled ? "bg-black/30 backdrop-blur-xl shadow-xl h-[10vh]" : "h-[20vh] bg-transparent"}
+      `}
+    >
+      <div
+        className={`
+          w-full px-6 lg:px-20 flex items-center justify-between transition-all duration-300
+          ${scrolled ? "h-[10vh]" : "h-[20vh]"}
+        `}
+      >
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src="/images/logo.png" alt="Logo" className="max-w-[35vh] ml-0" />
+          <img
+            src="/images/logo.png"
+            alt="Logo"
+            className={`transition-all duration-300 max-w-[35vh] ml-0
+              ${scrolled ? "max-w-[18vh]" : "max-w-[35vh]"}
+            `}
+          />
         </Link>
 
         {/* Mobile Hamburger */}
@@ -45,31 +71,22 @@ export default function Navbar() {
             transition-all duration-300
           `}
         >
-          <ul className="flex flex-col lg:flex-row lg:items-center gap-6 text-white">
+          <ul className="flex flex-col lg:flex-row lg:items-center gap-12 text-white">
 
             <li>
-              <Link
-                className={navLink}
-                to="/"
-                onClick={() => setOpen(false)}
-              >
+              <Link className={navLink} to="/" onClick={() => setOpen(false)}>
                 Home
               </Link>
             </li>
 
             <li>
-              <Link
-                className={navLink}
-                to="/about"
-                onClick={() => setOpen(false)}
-              >
+              <Link className={navLink} to="/about" onClick={() => setOpen(false)}>
                 About
               </Link>
             </li>
 
             {/* Dropdown */}
             <li className="relative group">
-              {/* Desktop: hover | Mobile: click */}
               <button
                 className={`flex items-center gap-1 ${navLink}`}
                 onClick={() => setDropdown(!dropdown)}
@@ -78,10 +95,9 @@ export default function Navbar() {
                 Services ▾
               </button>
 
-              {/* Dropdown menu */}
               <ul
                 className={`
-                  absolute left-0 mt-2 w-64 bg-white/10 backdrop-blur-xl
+                  absolute left-[-60px] mt-2 w-80 bg-white/10 backdrop-blur-xl
                   border border-white/20 rounded-xl py-2 z-[999]
                   opacity-0 invisible group-hover:opacity-100 group-hover:visible
                   transition-all duration-300
@@ -97,6 +113,7 @@ export default function Navbar() {
                     AI Solutions
                   </Link>
                 </li>
+
                 <li>
                   <Link
                     to="/cloud-consulting"
@@ -106,6 +123,7 @@ export default function Navbar() {
                     Cloud Consulting Services
                   </Link>
                 </li>
+
                 <li>
                   <Link
                     to="/cloud-implementation"
@@ -115,6 +133,7 @@ export default function Navbar() {
                     Cloud Implementation Services
                   </Link>
                 </li>
+
                 <li>
                   <Link
                     to="/managed-cloud"
@@ -124,6 +143,7 @@ export default function Navbar() {
                     Managed Cloud & IT Services
                   </Link>
                 </li>
+
                 <li>
                   <Link
                     to="/network-design"

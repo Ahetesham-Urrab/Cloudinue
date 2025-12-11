@@ -1,31 +1,44 @@
 import React, { useState } from "react";
-import "../index.css"; // contains .card-custom, .service-image, neon effects
+import { motion } from "framer-motion";
+import "../index.css";
+import ServiceCards from "../components/ServiceCards";
+import Cta from "../components/Cta";
 
 export default function ManageCloud() {
   // Default images
   const defaultImgTop = "/images/unnamed (3).jpg";
   const defaultImgBottom = "/images/unnamed (3).jpg";
 
-  // State for each row
   const [topImg, setTopImg] = useState(defaultImgTop);
   const [bottomImg, setBottomImg] = useState(defaultImgBottom);
+
+  // Animation Variants
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.7 } },
+  };
 
   // Top row cards
   const topCards = [
     {
       title: "Cloud Infrastructure Management",
       text: "End-to-end management for cloud environments, from set-up to performance monitoring.",
-      img: "/images/unnamed (8).jpg",
+      img: "/images/manageCloud.jpg",
     },
     {
       title: "24/7 Monitoring and Maintenance",
       text: "Rapid issue resolution and continuous protection of critical workflows.",
-      img: "/images/unnamed (9).jpg",
+      img: "/images/manageCloud(2).jpg",
     },
     {
       title: "Security & Compliance",
-      text: "Secure your data. Stay compliant with GDPR and more. Custom security audits and advanced protection.",
-      img: "/images/unnamed (10).jpg",
+      text: "Secure your data. Stay compliant with GDPR and more. Custom security audits and advanced protections.",
+      img: "/images/manageCloud(3).jpg",
     },
   ];
 
@@ -34,12 +47,12 @@ export default function ManageCloud() {
     {
       title: "Backup & Disaster Recovery",
       text: "Stay resilient with regular backups and rapid recovery plans.",
-      img: "/images/unnamed (11).jpg",
+      img: "/images/manageCloud(4).jpg",
     },
     {
       title: "Cost & Performance Optimization",
       text: "Get maximum value with ongoing efficiency checks, scalable resources, and cost control.",
-      img: "/images/unnamed (11).jpg",
+      img: "/images/manageCloud(5).jpg",
     },
   ];
 
@@ -47,61 +60,79 @@ export default function ManageCloud() {
     <div className="w-full overflow-hidden bg-[#010101] text-white">
 
       {/* Hero Section */}
-      <section
-  className="h-screen flex items-center justify-start bg-cover bg-center relative"
-  style={{
-    backgroundImage: "url('/images/unnamed18.jpg')",
-  }}
->
-  {/* Gradient Overlay */}
-  <div
-    className="absolute inset-0 z-9"
-    style={{
-      background: `linear-gradient(to top, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0))`,
-      backgroundSize: "cover",
-      backgroundPosition: "bottom",
-    }}
-  ></div>
+   <motion.section
+           initial={{ opacity: 0, y: 60 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.8 }}
+           viewport={{ once: true }}
+        className="h-[60vh] flex items-center justify-start bg-cover bg-top relative"
+        style={{
+          backgroundImage: "url('/images/unnamed18.jpg')",
+        }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to top, rgba(0,0,0,0.94), rgba(0,0,0,0))`,
+          }}
+        ></div>
 
-  <div className="container mx-auto relative z-10 text-left ml-5 lg:px-20">
-    <h1 className="font-bold text-5xl lg:text-6xl">Managed Cloud and IT Services</h1>
-    <h4 className="mt-2 text-xl">
-      Revolutionize Your Business with AI-Driven Innovations
-    </h4>
-    <p className="text-gray-400 mt-2 max-w-xl">
-      Discover the power of AI. Automate operations, make smarter decisions,
-      and gain insights faster than ever.
-    </p>
-  </div>
-</section>
+        <motion.div
+          className="container mx-auto relative z-10 text-left ml-5 lg:px-20 lg:mt-80"
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+        >
+          <h1 className="font-bold text-5xl lg:text-6xl text-center lg:text-start mt-80 lg:mt-0">
+            Managed Cloud and IT Services
+          </h1>
+          <h4 className="mt-2 text-xl hidden lg:block">Revolutionize Your Business with AI-Driven Innovations</h4>
+          <p className="text-gray-400 mt-2 max-w-xl hidden lg:block">
+            Discover the power of AI. Automate operations, make smarter decisions, and gain insights faster than ever.
+          </p>
+        </motion.div>
+      </motion.section>
 
       {/* Top Row */}
       <section className="py-20">
         <div className="container mx-auto flex flex-col md:flex-row items-center px-4 gap-12">
 
-          {/* Cards (50%) */}
-          <div className="w-full md:w-1/2 flex flex-col gap-6">
+          {/* Cards */}
+          <motion.div
+            className="w-full md:w-1/2 flex flex-col gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {topCards.map((card, idx) => (
-              <div
+              <motion.div
                 key={idx}
                 className="card-custom p-6 cursor-pointer"
+                variants={fadeUp}
+                whileHover={{ scale: 1.03 }}
                 onMouseEnter={() => setTopImg(card.img)}
                 onMouseLeave={() => setTopImg(defaultImgTop)}
               >
                 <h5 className="text-2xl font-semibold mb-2">{card.title}</h5>
                 <p className="text-gray-300">{card.text}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Image (50%) */}
-          <div className="w-full md:w-1/2 flex justify-center">
+          {/* Image */}
+          <motion.div
+            className="w-full md:w-1/2 flex justify-center"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeIn}
+            viewport={{ once: true }}
+          >
             <img
               src={topImg}
-              alt="AI Solutions Top"
-              className="service-image shadow-lg rounded-xl transition-transform duration-500 w-full max-w-[450px]"
+              alt="Top Section Illustration"
+              className="service-image shadow-lg rounded-xl transition-all duration-500 w-full max-w-[450px]"
             />
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -109,32 +140,48 @@ export default function ManageCloud() {
       <section className="py-20">
         <div className="container mx-auto flex flex-col md:flex-row items-center px-4 gap-12">
 
-          {/* Image (50%) */}
-          <div className="w-full md:w-1/2 flex justify-center">
+          {/* Image */}
+          <motion.div
+            className="w-full md:w-1/2 flex justify-center"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeIn}
+            viewport={{ once: true }}
+          >
             <img
               src={bottomImg}
-              alt="AI Solutions Bottom"
-              className="service-image shadow-lg rounded-xl transition-transform duration-500 w-full max-w-[450px]"
+              alt="Bottom Section Illustration"
+              className="service-image shadow-lg rounded-xl transition-all duration-500 w-full max-w-[450px]"
             />
-          </div>
+          </motion.div>
 
-          {/* Cards (50%) */}
-          <div className="w-full md:w-1/2 flex flex-col gap-6">
+          {/* Cards */}
+          <motion.div
+            className="w-full md:w-1/2 flex flex-col gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {bottomCards.map((card, idx) => (
-              <div
+              <motion.div
                 key={idx}
                 className="card-custom p-6 cursor-pointer"
+                variants={fadeUp}
+                whileHover={{ scale: 1.03 }}
                 onMouseEnter={() => setBottomImg(card.img)}
                 onMouseLeave={() => setBottomImg(defaultImgBottom)}
               >
                 <h5 className="text-2xl font-semibold mb-2">{card.title}</h5>
                 <p className="text-gray-300">{card.text}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-
+          </motion.div>
         </div>
       </section>
+
+      {/* Shared Components */}
+      <ServiceCards />
+      <Cta />
     </div>
   );
 }

@@ -82,8 +82,9 @@
 //     </section>
 //   );
 // }
-import { FiUploadCloud } from "react-icons/fi";
+import { FiUploadCloud, FiServer, FiCpu, FiShield } from "react-icons/fi";
 import React from "react";
+import { motion } from "framer-motion";
 import NeonButton from "./NeonButton";
 
 const services = [
@@ -92,28 +93,28 @@ const services = [
     title: "Cloud Consulting & Advisory",
     description:
       "Direct, jargon-free cloud strategy with practical roadmaps for smooth adoption, hybrid integration, and risk-free migration.",
-    image: "/images/Private.svg",
+    icon: FiUploadCloud,
   },
   {
     id: 2,
     title: "Managed Cloud & IT Services",
     description:
       "24/7 monitoring, proactive patching, and hands-off management so your team can focus on business—not infrastructure headaches.",
-    image: "/images/Private.svg",
+    icon: FiServer,
   },
   {
     id: 3,
     title: "AI & Automation Solutions",
     description:
       "Transform workflows with AI copilots, robust automation, and next-gen models designed to deliver measurable business outcomes.",
-    image: "/images/Private.svg",
+    icon: FiCpu,
   },
   {
     id: 4,
     title: "Secure Network Design",
     description:
       "Enterprise-grade, scalable, and secure networks built to support cloud, hybrid, and on-prem infrastructures with reliability and compliance.",
-    image: "/images/Private.svg",
+    icon: FiShield,
   },
 ];
 
@@ -130,34 +131,38 @@ export default function ServicesSection() {
 
       {/* Card Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        {services.map((service) => (
-          <div
-            key={service.id}
-            className="group relative flex flex-col items-center text-center p-6 rounded-2xl bg-[#111111] hover:bg-[#0a0a0a] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_#00e5ff] cursor-pointer"
-          >
-            {/* Neon glow circle */}
-            <div className="w-24 h-24 rounded-full bg-[#00e5ff]/20 blur-3xl absolute -top-10 group-hover:scale-110 transition-transform duration-500"></div>
+        {services.map((service, index) => {
+          const Icon = service.icon;
+          return (
+            <motion.div
+              key={service.id}
+              className="group relative flex flex-col items-center text-center p-6 rounded-2xl bg-[#111111] hover:bg-[#0a0a0a] transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_#00e5ff] cursor-pointer"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+            >
+              {/* Neon glow circle */}
+              <div className="w-24 h-24 rounded-full bg-[#00e5ff]/20 blur-3xl absolute -top-10 group-hover:scale-110 transition-transform duration-500"></div>
 
-            {/* Image */}
-            {/* <img
-              src={service.image}
-              alt={service.title}
-              className="w-20 h-20 object-contain mb-4 relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_#00e5ff]"
-            /> */}
-            <FiUploadCloud className="text-7xl"/>
+              {/* Icon */}
+              <Icon className="text-7xl mb-4 relative z-10 group-hover:drop-shadow-[0_0_20px_#00e5ff] transition-all duration-500" />
 
-            {/* Title */}
-            <h3 className="text-xl md:text-2xl font-semibold mb-2 z-10">{service.title}</h3>
+              {/* Title */}
+              <h3 className="text-xl md:text-2xl font-semibold mb-2 z-10">
+                {service.title}
+              </h3>
 
-            {/* Description */}
-            <p className="text-gray-400 text-sm md:text-base mb-4 z-10">
-              {service.description}
-            </p>
+              {/* Description */}
+              <p className="text-gray-400 text-sm md:text-base mb-4 z-10">
+                {service.description}
+              </p>
 
-            {/* Neon Button */}
-            <NeonButton text="Learn More"/>
-          </div>
-        ))}
+              {/* Button */}
+              <NeonButton text="Learn More" />
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
