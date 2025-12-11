@@ -1,4 +1,15 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 export default function Footer() {
+  <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/ai-solutions" element={<AISolution />} />
+            <Route path="/cloud-consulting" element={<CloudConsulting />} />
+            <Route path="/cloud-implementation" element={<CloudImplemantation />} />
+            <Route path="/managed-cloud" element={<ManageCloud />} />
+            <Route path="/network-design" element={<NetworkDesign />} />
+          </Routes>
   const footerLink =
     "relative inline-block text-white/70 transition-all duration-300 " +
     "after:content-[''] after:absolute after:left-0 after:-bottom-1 " +
