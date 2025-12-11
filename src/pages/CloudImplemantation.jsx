@@ -52,7 +52,7 @@ export default function CloudImplemantation() {
           }}
         ></div>
 
-        <div className="container mx-auto relative z-10 text-left ml-5 lg:px-20 lg:mt-80">
+        <div className="container mx-auto relative z-10 text-left ml-5 lg:px-20 lg:mt-60">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
