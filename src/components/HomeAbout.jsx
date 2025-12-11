@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 
 export default function HomeAbout() {
   return (
-    <section className="flex flex-col md:flex-row items-center justify-center px-6 md:px-20 py-5 md:py-20 bg-black">
+    <section className="flex flex-col md:flex-row items-center justify-center px-6 md:px-20 py-5 md:py-20 "
+    >
       
       {/* Content */}
       <motion.div

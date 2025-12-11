@@ -16,7 +16,7 @@ export default function Testimonial() {
   ];
 
   return (
-    <section className="container mx-auto flex flex-col items-center justify-center px-6 py-5 bg-black">
+    <section className="container mx-auto flex flex-col items-center justify-center px-6 py-5 ">
       
       {/* Heading */}
       <motion.h2

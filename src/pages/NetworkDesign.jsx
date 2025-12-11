@@ -43,7 +43,7 @@ export default function NetworkDesign() {
   ];
 
   return (
-    <div className="w-full overflow-hidden bg-[#010101] text-white">
+    <div className="w-full overflow-hidden text-white">
 
       {/* HERO SECTION */}
       <motion.section
@@ -63,13 +63,13 @@ export default function NetworkDesign() {
           }}
         ></div>
 
-        <div className="container mx-auto relative z-10 text-left ml-5 lg:px-20 lg:mt-80">
+        <div className="container mx-auto relative z-10 text-left lg:px-20 lg:mt-80">
 
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="font-bold text-5xl lg:text-6xl text-center lg:text-start mt-80 lg:mt-0"
+            className="font-bold text-5xl lg:text-6xl text-center lg:text-start mt-20 lg:mt-0"
           >
             Network Design & Infrastructure
           </motion.h1>

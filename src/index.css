@@ -83,6 +83,10 @@ a,h2,h1,h5{
   50% { left: 100%; }
   100% { left: -4px; }
 }
+body {
+  @apply bg-gradient-to-r from-[#010104] via-[#010108] to-[#0D2338] min-h-screen text-white;
+}
+
 
 @keyframes revealText {
   0% { clip-path: inset(0 100% 0 0); }

@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 export default function Home() {
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full overflow-hidden ">
 
       {/* Hero Section */}
       <div className="relative w-full h-screen overflow-hidden " >
@@ -41,7 +41,7 @@ export default function Home() {
           }}
         ></div>
         {/* Hero Content */}
-        <div className="relative z-10 flex flex-col justify-center lg:mt-40 items-start h-full text-left px-6 md:px-24 space-y-6">
+        <div className="relative z-10 flex flex-col justify-center lg:mt-20 items-start h-full text-left px-6 md:px-24 space-y-6">
           <motion.h1
             className="text-white text-4xl md:text-6xl drop-shadow-xl"
             style={{ fontFamily: "DoppioOne, sans-serif" }}
@@ -72,8 +72,9 @@ export default function Home() {
       <HomeAbout />
       <HomeService />
       <HomeWhy />
+       <HomeAdvantages />
       <Testimonial />
-      <HomeAdvantages />
+     
       <Cta />
       {/* <Services /> */}
       {/* <Testimonials /> */}

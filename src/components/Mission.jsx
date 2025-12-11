@@ -74,7 +74,7 @@ import { motion } from "framer-motion";
 
 export default function Mission() {
   return (
-    <section className="relative w-full py-16 px-4 lg:px-12 bg-black overflow-hidden">
+    <section className="relative w-full py-16 px-4 lg:px-12  overflow-hidden">
 
       {/* Glow Background */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500/20 blur-[100px]"></div>

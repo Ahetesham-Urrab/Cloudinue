@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <div className="bg-black min-h-screen ">
+    <div className=" min-h-screen ">
 
       {/* ================= HERO ================= */}
       <section

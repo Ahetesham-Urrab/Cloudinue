@@ -28,7 +28,7 @@ const reasons = [
 
 export default function WhyChoose() {
   return (
-    <section className="py-20 px-6 md:px-20 bg-black">
+    <section className="py-20 px-6 md:px-20 ">
       <div className="flex flex-col lg:flex-row items-center gap-10">
 
         {/* Left Column: Text */}

@@ -32,7 +32,7 @@ export default function AISolution() {
   ];
 
   return (
-     <div className="w-full overflow-hidden bg-[#010101] text-white">
+     <div className="w-full overflow-hidden text-white">
 
       {/* ===================== HERO SECTION ===================== */}
       <motion.section
@@ -63,7 +63,7 @@ export default function AISolution() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="font-bold text-5xl lg:text-6xl text-center lg:text-start mt-80 lg:mt-0" >AI Solutions</h1>
+          <h1 className="font-bold text-5xl lg:text-6xl text-center lg:text-start mt-20 lg:mt-0" >AI Solutions</h1>
           <h4 className="mt-2 text-xl hidden lg:block">
             Revolutionize Your Business with AI-Driven Innovations
           </h4>

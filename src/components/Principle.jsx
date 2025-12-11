@@ -87,7 +87,7 @@ export default function Principle() {
   ];
 
   return (
-    <section className="relative py-10 px-6 bg-black overflow-hidden">
+    <section className="relative py-10 px-6 overflow-hidden">
 
       {/* Glow Background */}
       <div className="absolute -top-10 left-0 w-[500px] h-[500px] bg-blue-600/20 blur-[180px]" />

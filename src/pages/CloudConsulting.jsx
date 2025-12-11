@@ -48,7 +48,7 @@ export default function CloudConsulting() {
   ];
 
   return (
-    <div className="w-full overflow-hidden bg-[#010101] text-white">
+    <div className="w-full overflow-hidden text-white">
 
       {/* HERO SECTION */}
       <motion.section
@@ -71,7 +71,7 @@ export default function CloudConsulting() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="font-bold text-4xl lg:text-6xl text-center lg:text-start mt-80 lg:mt-0"
+            className="font-bold text-4xl lg:text-6xl text-center lg:text-start mt-20 lg:mt-0"
           >
             Cloud Consulting Services
           </motion.h1>

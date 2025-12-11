@@ -80,7 +80,7 @@ export default function Guidlines() {
   ];
 
   return (
-    <section className="relative py-10 px-6 bg-010101">
+    <section className="relative py-10 px-6">
       
       {/* Background Glow */}
       <div className="absolute left-0 top-0 w-[350px] h-[350px] bg-blue-500/20 blur-[150px]"></div>

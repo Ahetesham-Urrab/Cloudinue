@@ -37,7 +37,7 @@ const services = [
 
 export default function ServiceCards() {
   return (
-    <section className="py-16 px-6 md:px-20 bg-black">
+    <section className="py-16 px-6 md:px-20 ">
       <h2 className="text-white text-3xl md:text-4xl font-bold mb-10 text-center">
         Our Services
       </h2>

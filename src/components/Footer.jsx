@@ -9,7 +9,7 @@ export default function Footer() {
     "hover:text-[#00f0ff] hover:[text-shadow:0_0_4px_#00f0ff,0_0_8px_#00f0ff]";
 
   return (
-    <footer className="text-white pt-12 pb-6 bg-[#010101]">
+    <footer className="text-white pt-12 pb-6 ">
       <div className="container mx-auto px-4">
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">

@@ -15,10 +15,10 @@ import NetworkDesign from "./pages/NetworkDesign";
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-black">
+      <div className="min-h-screen flex flex-col ">
         <Navbar />
 
-        <main className="flex-grow bg-black">
+        <main className="flex-grow ">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
