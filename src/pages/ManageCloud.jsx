@@ -78,12 +78,12 @@ export default function ManageCloud() {
         ></div>
 
         <motion.div
-          className="container mx-auto relative z-10 text-center lg:px-20 mt-20 lg:mt-80"
+          className="container mx-auto relative z-10 text-left ml-5 lg:px-20 lg:mt-80"
           initial="hidden"
           animate="visible"
           variants={fadeUp}
         >
-          <h1 className="font-bold text-5xl lg:text-6xl text-center lg:text-start mt-20 lg:mt-0">
+          <h1 className="font-bold text-5xl lg:text-6xl text-center lg:text-start mt-80 lg:mt-0">
             Managed Cloud and IT Services
           </h1>
           <h4 className="mt-2 text-xl hidden lg:block">Revolutionize Your Business with AI-Driven Innovations</h4>

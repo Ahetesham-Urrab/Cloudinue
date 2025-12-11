@@ -34,8 +34,8 @@ export default function About() {
               }}
             ></div>
             {/* Left Content */}
-            <div className="md:col-span-7 px-2 mt-20 z-10 lg:mt-60">
-              <h1 className="text-white text-6xl md:text-6xl font-bold mb-4 text-center lg:text-start">
+            <div className="md:col-span-7 mt-20 z-10 lg:mt-60 ml-0 lg:ml-20">
+              <h1 className="text-white text-6xl md:text-6xl font-bold  mb-4 text-center lg:text-start">
                 About Us
               </h1>
 
