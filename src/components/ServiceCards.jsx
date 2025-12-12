@@ -47,14 +47,12 @@ export default function ServiceCards() {
           <Link
             key={index}
             to={service.link}
-            className="
-              group p-6 rounded-xl border border-gray-700 bg-black/40
-              transition-all duration-300
-              hover:border-blue-500 
-              shadow-[0_0_16px_#00e5ff]
-              hover:scale-105
-            "
+            onClick={() =>
+              window.scrollTo({ top: 0, behavior: "smooth" })
+            }
+            className="group p-6 rounded-xl border border-gray-700 bg-black/40 transition-all duration-300 hover:border-blue-500 shadow-[0_0_16px_#00e5ff] hover:scale-105"
           >
+
             <div className="flex justify-center mb-4">
               {/* <img
                 // src={service.icon}
